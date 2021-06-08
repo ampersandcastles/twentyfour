@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header>
       <Navbar className="header">
-        <NavbarBrand href="/">React Library</NavbarBrand>
+        <NavbarBrand href="/">24 hours to write a project</NavbarBrand>
         <Nav className="ml-auto" navbar>
           <NavItem>
             <NavLink href="https://github.com/tristanlearns/twentyfour">
