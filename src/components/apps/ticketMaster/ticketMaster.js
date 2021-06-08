@@ -15,15 +15,14 @@ const NearestEvents =() => {
         } else {
             setStatus('Locating...');
             navigator.geolocation.getCurrentPosition((position) => {
-                fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=Gph5eT3UoUhietGGAxGHBYNpaG4nhv6n&latlong=${lat},${long}`, {
+                setLat(position.coords.latitude);
+                setLong(position.coords.longitude);
+                fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=Gph5eT3UoUhietGGAxGHBYNpaG4nhv6n&latlong=${position.coords.latitude},${position.coords.longitude}`, {
                 method: 'GET',
                 headers: new Headers({
                     'Content-Type': 'application/json'
                 })
             })
-                setStatus(null);
-                setLat(position.coords.latitude);
-                setLong(position.coords.longitude);
             }, () => {
                 setStatus('Unable to retrieve your location');
             });
