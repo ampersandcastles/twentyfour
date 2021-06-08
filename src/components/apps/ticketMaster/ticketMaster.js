@@ -17,24 +17,30 @@ const NearestEvents =() => {
             navigator.geolocation.getCurrentPosition((position) => {
                 setLat(position.coords.latitude);
                 setLong(position.coords.longitude);
-                fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=Gph5eT3UoUhietGGAxGHBYNpaG4nhv6n&latlong=${position.coords.latitude},${position.coords.longitude}`, {
-                method: 'GET',
-                headers: new Headers({
-                    'Content-Type': 'application/json'
+                fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=Gph5eT3UoUhietGGAxGHBYNpaG4nhv6n&latlong=${position.coords.latitude},${position.coords.longitude}`)
+                .then(function(result){
+                    console.log(result);
+                    return result.json();
+                })
+                .then(function(json) {
+                    console.log(json);
+                    
+
                 })
             })
-            }, () => {
-                setStatus('Unable to retrieve your location');
-            });
+            
         }
     }
+
+
+
 return(
     <div className ="App">
-        <button onClick={getLocation}>Get Location</button>
         <h1>Coordinates</h1>
         <p>{status}</p>
         {lat && <p>Latitude: {lat}</p>}
         {long && <p>Latitude: {long}</p>}
+        <button onClick={getLocation}>Get Location</button>
     </div>
         
     )
