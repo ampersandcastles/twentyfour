@@ -1,8 +1,8 @@
 import { Route, Link, Switch } from "react-router-dom";
 import Home from "./Home";
 import Nasa from "../apps/nasa/nasa";
-import Tm from "../apps/ticketMaster/ticketMaster";
-import Owm from "../apps/openWeather/openWeather";
+// import Tm from "../apps/ticketMaster/ticketMaster";
+// import Owm from "../apps/openWeather/openWeather";
 
 const Sidebar = () => {
   return (
@@ -15,12 +15,12 @@ const Sidebar = () => {
           <li>
             <Link to="/nasa">NASA</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/owm">Open Weather Map</Link>
           </li>
           <li>
             <Link to="/tm">Ticket Master</Link>
-          </li>
+          </li> */}
         </ul>
       </div>
       <div className="sidebar-route">
@@ -31,12 +31,12 @@ const Sidebar = () => {
           <Route exact path="/nasa">
             <Nasa />
           </Route>
-          <Route exact path="/owm">
+          {/* <Route exact path="/owm">
             <Owm />
           </Route>
           <Route exact path="/tm">
             <Tm />
-          </Route>
+          </Route> */}
         </Switch>
       </div>
     </div>
