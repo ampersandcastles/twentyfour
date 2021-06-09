@@ -35,7 +35,6 @@ function convertTemp() {
         }).catch(err => console.log(err))
     })
 }
-
     useEffect(()=> {
         fetchweather();
     }, []);
