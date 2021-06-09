@@ -13,8 +13,6 @@ const Nasa = (lat, lon) => {
   // console.log(url);
   let newUrl;
 
-  // I don't get it and it isn't fun. Like how do people figure this shit out on their own?
-
   // fetch(url)
   //   .then((res) => res.json())
   //   .then((data) => {
