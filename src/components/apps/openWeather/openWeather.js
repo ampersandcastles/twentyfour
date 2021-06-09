@@ -3,6 +3,7 @@ import {
     Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button
 } from 'reactstrap';
+
 const WeatherParent = (props) => {
     const [weather, setWeather] = useState([]);
     const [temp, setTemp] = useState("");
@@ -12,8 +13,11 @@ const WeatherParent = (props) => {
     const [lat, setLat] = useState(null);
     const [long, setLong] = useState(null);
     // const [status, setStatus] = useState(null);
+
+
 function convertTemp() {
     if (temp===celcius) {
+
         setTemp(fahrenheit)
     } else {
         setTemp(celcius)  
@@ -26,6 +30,7 @@ function convertTemp() {
         fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=edfde44c1e3d9a379340235bda407164`)
         .then((response) => response.json())
         .then((json) => {
+
             console.log (json)
         }).catch(err => console.log(err))
     })
@@ -47,4 +52,6 @@ function convertTemp() {
         </div>
     );
 };
+
+
 export default WeatherParent;
