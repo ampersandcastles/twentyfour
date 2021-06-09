@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 // import Home from "../../site/Home";
 
 const key = "mn2af7JtZtjoqhsrZcpppHIyTgkXtfG6L83tcMp8";
@@ -12,27 +13,20 @@ const Nasa = (lat, lon) => {
   // console.log(url);
   let newUrl;
 
+  // I don't get it and it isn't fun. Like how do people figure this shit out on their own?
+
   // fetch(url)
   //   .then((res) => res.json())
   //   .then((data) => {
   //     newUrl = data.url;
   //   });
 
-  const fetchImage = () => {
-    fetch(url, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then(function (response) {
-        console.log(response);
-        return response.json();
-      })
-      .then(function (newUrl) {
-        console.log(newUrl);
-        setData(newUrl);
-      });
-  };
+  // useEffect(() => {
+  //   axios(url).then((response) => {
+  //     setData(response.data);
+  //     console.log(setData);
+  //   });
+  // });
 
   return (
     <div className="main">
