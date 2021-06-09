@@ -15,12 +15,12 @@ const Sidebar = () => {
           <li>
             <Link to="/nasa">NASA</Link>
           </li>
-          {/* <li>
+          <li>
             <Link to="/owm">Open Weather Map</Link>
           </li>
           <li>
             <Link to="/tm">Ticket Master</Link>
-          </li> */}
+          </li>
         </ul>
       </div>
       <div className="sidebar-route">
@@ -31,12 +31,12 @@ const Sidebar = () => {
           <Route exact path="/nasa">
             <Nasa />
           </Route>
-          {/* <Route exact path="/owm">
+          <Route exact path="/owm">
             <Owm />
           </Route>
           <Route exact path="/tm">
             <Tm />
-          </Route> */}
+          </Route>
         </Switch>
       </div>
     </div>
