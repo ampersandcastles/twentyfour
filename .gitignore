@@ -23,3 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 keys
+
+#chelsey's ignore
+/package-lock.json
+/package.json
