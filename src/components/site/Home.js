@@ -1,6 +1,7 @@
 import React from "react";
 import { geolocated } from "react-geolocated";
 
+<<<<<<< HEAD
 // const Home = () => {
 //   return (
 //     <div className="main">
@@ -35,6 +36,16 @@ class Home extends React.Component {
             </tbody>
           </table>
         </div>
+=======
+const Home = () => {
+  return (
+    <div className="main">
+      <div className="mainDiv">
+        <h1>Welcome to Team E's 24 hour project.</h1>
+        <p>This app is going to be the death of us.</p>
+        
+        <hr />
+>>>>>>> origin/chelsey
       </div>
     ) : (
       <div>Getting the location &hellip;</div>
