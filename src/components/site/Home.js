@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import React from "react";
+import { geolocated } from "react-geolocated";
 
 const Home = () => {
   return (
@@ -9,8 +10,8 @@ const Home = () => {
         
         <hr />
       </div>
-    </div>
-  );
-};
+      </div>
+    ) 
+}
 
 export default Home;
