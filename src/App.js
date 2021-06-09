@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React from 'react';
+=======
+// import React, { useState, useEffect } from 'react';
+>>>>>>> 732677dac5275858a5d0aaf82d6e3034c3eb140b
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 
