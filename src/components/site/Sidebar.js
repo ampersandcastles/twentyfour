@@ -1,8 +1,8 @@
 import { Route, Link, Switch } from "react-router-dom";
 import Home from "./Home";
 import Nasa from "../apps/nasa/nasa";
-// import Tm from "../apps/ticketMaster/ticketMaster";
-// import Owm from "../apps/openWeather/openWeather";
+import Tm from "../apps/ticketMaster/ticketMaster";
+import Owm from "../apps/openWeather/openWeather";
 
 const Sidebar = () => {
   return (

@@ -3,8 +3,6 @@ import {
     Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button
 } from 'reactstrap';
-import {geolocated} from "react-geolocated";
-// import Location from "./location";
 
 const WeatherParent = (props) => {
     const [weather, setWeather] = useState([]);
@@ -13,35 +11,9 @@ const WeatherParent = (props) => {
     const [celcius, setCelcius] = useState("");
     const[ condition, setCondition] =useState("");
     const [lat, setLat] = useState(null);
-    // const [long, setLong] = useState(null);
+    const [long, setLong] = useState(null);
     // const [status, setStatus] = useState(null);
 
-useEffect(() => {
-    fetchweather()
-}, []);
-
-// const getLocation = () => {
-//         if(!navigator.geolocation) {
-//             setStatus('Geolocation is not supported by your browser');
-//         } else {
-//             setStatus('Locating...');
-//             navigator.geolocation.getCurrentPosition((position) => {
-//                 setLat(position.coords.latitude);
-//                 setLong(position.coords.longitude);
-//                 fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${props.latitude}&lon=${props.longitude}&appid=edfde44c1e3d9a379340235bda407164`)
-//                 .then(function(result){
-//                     console.log(result);
-//                     return result.json();
-//                 })
-//                 .then(function(json) {
-//                     console.log(json);
-                    
-
-//                 })
-//             })
-            
-//         }
-//     }
 
 function convertTemp() {
     if (temp===celcius) {
@@ -52,18 +24,21 @@ function convertTemp() {
     }
 }
     function fetchweather() {
-        const url =
-        `https://api.openweathermap.org/data/2.5/weather?lat=${props.latitude}&lon=${props.longitude}&appid=edfde44c1e3d9a379340235bda407164`;
-        fetch(url)
+        navigator.geolocation.getCurrentPosition((position) => {
+            setLat(position.coords.latitude);
+            setLong(position.coords.longitude);
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=edfde44c1e3d9a379340235bda407164`)
         .then((response) => response.json())
         .then((json) => {
+
             console.log (json)
-            // setTemp(json.main.temp-273.15)
-            // setCelcius(json.main.temp-273.15)
-            // setFahrenheit((json.main.temp-273.15)*9/5+32)
-            // setCondition(json.weather[0].description)
-        });
-    }
+        }).catch(err => console.log(err))
+    })
+}
+
+    useEffect(()=> {
+        fetchweather();
+    }, []);
     return (
         <div>
             <Card>
@@ -79,32 +54,5 @@ function convertTemp() {
     );
 };
 
-// const Hooks = () => {
-//     const [query, setQuery] = useState("");
-//     const [results, setResults] = useState({});
-
-//     const fetcher = () => {
-//         fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${props.latitude}&lon=${props.longitude}&appid=edfde44c1e3d9a379340235bda407164`)
-//         .then((res) => res.json())
-//         .then((json) => {
-//             console.log(json);
-//             setResults(json);
-//         });
-//     };
-
-//     return (
-//         <div className="main">
-//             <div className="mainDiv">
-//                 <input
-//                     value={query}
-//                     onChange={(e) => setQuery(e.target.value)}
-//                     placeholder="enter your sw character number"
-//                 />
-//                 <button onClick={() => fetcher()}>Click for Character!</button>
-//                 {results ? <h2>{results.name}</h2> : <div></div>}
-//             </div>
-//         </div>
-//     );
-// };
 
 export default WeatherParent;
